@@ -8,7 +8,6 @@ const usuariosRouter = require('./routes/usuariosRouter');
 const categoriasArtigosRouter = require('./routes/categoriasArtigosRouter');
 const comentariosArtigosRouter = require('./routes/comentariosArtigosRouter');
 const papeisUsuariosRouter = require('./routes/papeisUsuariosRouter');
-const testeRouter = require('./routes/testeRouter');
 
 const app = express();
 
@@ -38,7 +37,6 @@ app.use('/v1/usuarios', usuariosRouter);
 app.use('/v1/categorias-artigos', categoriasArtigosRouter);
 app.use('/v1/comentarios-artigos', comentariosArtigosRouter);
 app.use('/v1/papeis-usuarios', papeisUsuariosRouter);
-app.use('/v1/teste', testeRouter);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
