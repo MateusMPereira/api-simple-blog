@@ -1,8 +1,8 @@
 const basicAuthMiddleware = (req, res, next) => {
   const auth = (req, res, next) => {
     const credentials = basicAuth(req);
-    const username = 'mateus';
-    const password = '123456';
+    const username = 'portugues-para-vestibular';
+    const password = 'prtgsprvstblr';
 
     if (!credentials || credentials.name !== username || credentials.pass !== password) {
       res.set('WWW-Authenticate', 'Basic realm="example"');
