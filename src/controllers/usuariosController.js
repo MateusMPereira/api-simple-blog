@@ -101,12 +101,10 @@ const deletarUsuario = async (req, res) => {
   }
 };
 
-const usuariosController = {
+module.exports = {
   listarUsuarios,
   obterUsuario,
   criarUsuario,
   atualizarUsuario,
   deletarUsuario,
 };
-
-module.exports = usuariosController;

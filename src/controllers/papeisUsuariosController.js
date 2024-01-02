@@ -101,12 +101,10 @@ const deletarPapelUsuario = async (req, res) => {
   }
 };
 
-const papeisUsuariosController = {
+module.exports = {
   listarPapeisUsuarios,
   obterPapelUsuario,
   criarPapelUsuario,
   atualizarPapelUsuario,
   deletarPapelUsuario,
 };
-
-module.exports = papeisUsuariosController;

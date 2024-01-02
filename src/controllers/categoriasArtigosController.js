@@ -101,12 +101,10 @@ const deletarCategoriaArtigo = async (req, res) => {
   }
 };
 
-const categoriasArtigosController = {
+module.exports = {
   listarCategoriasArtigos,
   obterCategoriaArtigo,
   criarCategoriaArtigo,
   atualizarCategoriaArtigo,
   deletarCategoriaArtigo,
 };
-
-module.exports = categoriasArtigosController;

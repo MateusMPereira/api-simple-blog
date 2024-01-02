@@ -12,7 +12,7 @@ mongoose.connect('mongodb+srv://owner:QHJCpoM4l3z7b2Tc@blog360.v1oqwf5.mongodb.n
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Erro de conexão com o MongoDB:'));
 db.once('open', () => {
-  console.log('Conectado ao MongoDB!');
+  console.log('Conectado MDB!');
 });
 
 app.use('/v1/artigos', artigosRouter);

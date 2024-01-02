@@ -101,12 +101,10 @@ const deletarComentarioArtigo = async (req, res) => {
   }
 };
 
-const comentariosArtigosController = {
+module.exports = {
   listarComentariosArtigos,
   obterComentarioArtigo,
   criarComentarioArtigo,
   atualizarComentarioArtigo,
   deletarComentarioArtigo,
 };
-
-module.exports = comentariosArtigosController;

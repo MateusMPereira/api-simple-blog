@@ -1,7 +1,5 @@
 const ArtigosModel = require('../models/artigosModel');
 
-console.log('artigosController!');
-
 const listarArtigos = async (req, res) => {
   try {
     const autor = req.query.autor;
@@ -110,13 +108,13 @@ const deletarArtigo = async (req, res) => {
       return res.status(400).send('ID de artigo inválido.');
     }
 
-    const artigoExistente = await Artigo.findById(artigoId);
+    const artigoExistente = await ArtigosModel.findById(artigoId);
 
     if (!artigoExistente) {
       return res.status(404).send('Artigo não encontrado.');
     }
 
-    await Artigo.findByIdAndDelete(artigoId);
+    await ArtigosModel.findByIdAndDelete(artigoId);
 
     res.status(204).send();
   } catch (error) {
@@ -125,12 +123,10 @@ const deletarArtigo = async (req, res) => {
   }
 };
 
-const artigosController = {
+module.exports = {
   listarArtigos,
   obterArtigo,
   criarArtigo,
   atualizarArtigo,
   deletarArtigo,
 };
-
-module.exports = artigosController;

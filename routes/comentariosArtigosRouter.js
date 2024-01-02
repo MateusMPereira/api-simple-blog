@@ -1,12 +1,18 @@
 const express = require('express');
-const comentariosArtigosController = require('../src/controllers/comentariosArtigosController');
 const authMiddleware = require('../src/middlewares/basicAuthMiddleware');
 const comentariosArtigosRouter = express.Router();
+const {
+    listarComentariosArtigos,
+    obterComentarioArtigo,
+    criarComentarioArtigo,
+    atualizarComentarioArtigo,
+    deletarComentarioArtigo,
+  } = require('../src/controllers/comentariosArtigosController');
 
-comentariosArtigosRouter.get('/', authMiddleware, comentariosArtigosController.listarComentariosArtigos);
-comentariosArtigosRouter.get('/:id', authMiddleware, comentariosArtigosController.obterComentarioArtigo);
-comentariosArtigosRouter.post('/', authMiddleware, comentariosArtigosController.criarComentarioArtigo);
-comentariosArtigosRouter.put('/:id', authMiddleware, comentariosArtigosController.atualizarComentarioArtigo);
-comentariosArtigosRouter.delete('/:id', authMiddleware, comentariosArtigosController.deletarComentarioArtigo);
+comentariosArtigosRouter.get('/', authMiddleware, listarComentariosArtigos);
+comentariosArtigosRouter.get('/:id', authMiddleware, obterComentarioArtigo);
+comentariosArtigosRouter.post('/', authMiddleware, criarComentarioArtigo);
+comentariosArtigosRouter.put('/:id', authMiddleware, atualizarComentarioArtigo);
+comentariosArtigosRouter.delete('/:id', authMiddleware, deletarComentarioArtigo);
 
 module.exports = comentariosArtigosRouter;

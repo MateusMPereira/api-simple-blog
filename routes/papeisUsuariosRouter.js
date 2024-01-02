@@ -1,12 +1,18 @@
 const express = require('express');
 const papeisUsuariosRouter = express.Router();
 const authMiddleware = require('../src/middlewares/basicAuthMiddleware');
-const papeisUsuariosController = require('../src/controllers/papeisUsuariosController');
+const {
+    listarPapeisUsuarios,
+    obterPapelUsuario,
+    criarPapelUsuario,
+    atualizarPapelUsuario,
+    deletarPapelUsuario,
+  } = require('../src/controllers/papeisUsuariosController');
 
-papeisUsuariosRouter.get('/', authMiddleware, papeisUsuariosController.listarPapeisUsuarios);
-papeisUsuariosRouter.get('/:id', authMiddleware, papeisUsuariosController.obterPapelUsuario);
-papeisUsuariosRouter.post('/', authMiddleware, papeisUsuariosController.criarPapelUsuario);
-papeisUsuariosRouter.put('/:id', authMiddleware, papeisUsuariosController.atualizarPapelUsuario);
-papeisUsuariosRouter.delete('/:id', authMiddleware, papeisUsuariosController.deletarPapelUsuario);
+papeisUsuariosRouter.get('/', authMiddleware, listarPapeisUsuarios);
+papeisUsuariosRouter.get('/:id', authMiddleware, obterPapelUsuario);
+papeisUsuariosRouter.post('/', authMiddleware, criarPapelUsuario);
+papeisUsuariosRouter.put('/:id', authMiddleware, atualizarPapelUsuario);
+papeisUsuariosRouter.delete('/:id', authMiddleware, deletarPapelUsuario);
 
 module.exports = papeisUsuariosRouter;
