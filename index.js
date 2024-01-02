@@ -21,7 +21,6 @@ app.use('/v1/categorias-artigos', categoriasArtigosRouter);
 app.use('/v1/comentarios-artigos', comentariosArtigosRouter);
 app.use('/v1/papeis-usuarios', papeisUsuariosRouter);
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Servidor rodando em: http://localhost:${PORT}`);
+app.listen(() => {
+  console.log(`Application started.`);
 });
