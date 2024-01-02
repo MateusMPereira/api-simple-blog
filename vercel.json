@@ -1,15 +1,6 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "index.js",
-        "use": "@now/node"
-      }
-    ],
-    "routes": [
-      {
-        "src": "routes/(.*)",
-        "dest": "index.js"
-      }
-    ]
+    "buildCommand": "node index.js",
+    "installCommand": "npm install",
+    "public": false,
+    "cleanUrls": true
   }
