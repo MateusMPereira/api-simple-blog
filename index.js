@@ -21,6 +21,6 @@ app.use('/v1/categorias-artigos', categoriasArtigosRouter);
 app.use('/v1/comentarios-artigos', comentariosArtigosRouter);
 app.use('/v1/papeis-usuarios', papeisUsuariosRouter);
 
-app.listen(() => {
+app.listen(5000, () => {
   console.log(`Application started.`);
 });
