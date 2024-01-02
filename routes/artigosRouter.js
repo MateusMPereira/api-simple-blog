@@ -1,7 +1,9 @@
 const express = require('express');
 const artigosRouter = express.Router();
-const authMiddleware = require('../middlewares/basicAuthMiddleware');
-const artigosController = require('../controllers/artigosController');
+const authMiddleware = require('../src/middlewares/basicAuthMiddleware');
+const artigosController = require('../src/controllers/artigosController');
+
+console.log('artigosRouter!');
 
 artigosRouter.get('/', authMiddleware, artigosController.listarArtigos);
 artigosRouter.get('/:id', authMiddleware, artigosController.obterArtigo);

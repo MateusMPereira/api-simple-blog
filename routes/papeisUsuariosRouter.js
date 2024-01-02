@@ -1,7 +1,7 @@
 const express = require('express');
 const papeisUsuariosRouter = express.Router();
-const authMiddleware = require('../middlewares/basicAuthMiddleware');
-const papeisUsuariosController = require('../controllers/papeisUsuariosController');
+const authMiddleware = require('../src/middlewares/basicAuthMiddleware');
+const papeisUsuariosController = require('../src/controllers/papeisUsuariosController');
 
 papeisUsuariosRouter.get('/', authMiddleware, papeisUsuariosController.listarPapeisUsuarios);
 papeisUsuariosRouter.get('/:id', authMiddleware, papeisUsuariosController.obterPapelUsuario);

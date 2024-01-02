@@ -1,8 +1,5 @@
 const express = require('express');
-const swaggerJSDoc = require('swagger-jsdoc');
-const swaggerUi = require('swagger-ui-express');
 const mongoose = require('mongoose');
-const router = express.Router();
 const artigosRouter = require('./routes/artigosRouter');
 const usuariosRouter = require('./routes/usuariosRouter');
 const categoriasArtigosRouter = require('./routes/categoriasArtigosRouter');
@@ -18,20 +15,6 @@ db.once('open', () => {
   console.log('Conectado ao MongoDB!');
 });
 
-const swaggerOptions = {
-  definition: {
-    openapi: '3.0.0',
-    info: {
-      title: 'API-SIMPLE-BLOG',
-      version: '1.0.0',
-    },
-  },
-  apis: ['./routes/*.js'],
-};
-
-const swaggerSpec = swaggerJSDoc(swaggerOptions);
-
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use('/v1/artigos', artigosRouter);
 app.use('/v1/usuarios', usuariosRouter);
 app.use('/v1/categorias-artigos', categoriasArtigosRouter);

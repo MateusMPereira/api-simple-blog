@@ -1,7 +1,7 @@
 const express = require('express');
 const categoriasArtigosRouter = express.Router();
-const authMiddleware = require('../middlewares/basicAuthMiddleware');
-const categoriasArtigosController = require('../controllers/categoriasArtigosController');
+const authMiddleware = require('../src/middlewares/basicAuthMiddleware');
+const categoriasArtigosController = require('../src/controllers/categoriasArtigosController');
 
 categoriasArtigosRouter.get('/', authMiddleware, categoriasArtigosController.listarCategoriasArtigos);
 categoriasArtigosRouter.get('/:id', authMiddleware, categoriasArtigosController.obterCategoriaArtigo);

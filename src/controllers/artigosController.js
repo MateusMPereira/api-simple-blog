@@ -1,5 +1,7 @@
 const ArtigosModel = require('../models/artigosModel');
 
+console.log('artigosController!');
+
 const listarArtigos = async (req, res) => {
   try {
     const autor = req.query.autor;
