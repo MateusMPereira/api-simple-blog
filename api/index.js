@@ -1,10 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const artigosRouter = require('./src/controllers/artigosController');
-const usuariosRouter = require('./src/controllers/usuariosController');
-const categoriasArtigosRouter = require('./src/controllers/categoriasArtigosController');
-const comentariosArtigosRouter = require('./src/controllers/comentariosArtigosController');
-const papeisUsuariosRouter = require('./src/controllers/papeisUsuariosController');
+const artigosRouter = require('../src/controllers/artigosController');
+const usuariosRouter = require('../src/controllers/usuariosController');
+const categoriasArtigosRouter = require('../src/controllers/categoriasArtigosController');
+const comentariosArtigosRouter = require('../src/controllers/comentariosArtigosController');
+const papeisUsuariosRouter = require('../src/controllers/papeisUsuariosController');
 
 const app = express();
 
