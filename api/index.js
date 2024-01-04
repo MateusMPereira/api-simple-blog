@@ -23,14 +23,11 @@ app.set('port', 3000)
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
-app.get('/', (req, res) => {
-
-});
-app.get('/artigos', artigosRouter);
-app.get('/usuarios', usuariosRouter);
-app.get('/categorias-artigos', categoriasArtigosRouter);
-app.get('/comentarios-artigos', comentariosArtigosRouter);
-app.get('/papeis-usuarios', papeisUsuariosRouter);
+app.use('/artigos', artigosRouter);
+app.use('/usuarios', usuariosRouter);
+app.use('/categorias-artigos', categoriasArtigosRouter);
+app.use('/comentarios-artigos', comentariosArtigosRouter);
+app.use('/papeis-usuarios', papeisUsuariosRouter);
 
 if (app.get('env') === 'development') {
   app.use(errorHandler())
