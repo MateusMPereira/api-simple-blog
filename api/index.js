@@ -16,11 +16,11 @@ db.once('open', () => {
   console.log('Conectado MDB!');
 });
 
-app.use('/v1/artigos', artigosRouter);
-app.use('/v1/usuarios', usuariosRouter);
-app.use('/v1/categorias-artigos', categoriasArtigosRouter);
-app.use('/v1/comentarios-artigos', comentariosArtigosRouter);
-app.use('/v1/papeis-usuarios', papeisUsuariosRouter);
+app.use('/api/artigos', artigosRouter);
+app.use('/api/usuarios', usuariosRouter);
+app.use('/api/categorias-artigos', categoriasArtigosRouter);
+app.use('/api/comentarios-artigos', comentariosArtigosRouter);
+app.use('/api/papeis-usuarios', papeisUsuariosRouter);
 
 app.listen(3000, () => {
   console.log(`Application started.`);
