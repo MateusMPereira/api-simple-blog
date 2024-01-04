@@ -8,7 +8,7 @@ const artigoSchema = new mongoose.Schema({
   dataCriacao: { type: String, required: true },
   dataUltimaModificacao: { type: String, required: true },
   autorUltimaModificacao: { type: mongoose.Schema.Types.ObjectId, ref: 'usuarios' },
-  capa: { type: String, required: true }, // Armazenar como BASE64 ou um link para a imagem
+  capa: { type: String, required: true },
   categoria: { type: mongoose.Schema.Types.ObjectId, ref: 'categorias-artigos', required: true },
   idPostAnterior: { type: mongoose.Schema.Types.ObjectId, ref: 'artigos' },
   idPostPosterior: { type: mongoose.Schema.Types.ObjectId, ref: 'artigos' },

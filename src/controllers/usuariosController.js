@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 const UsuariosModel = require('../models/usuariosModel');
+const express = require('express');
+const usuariosRouter = express.Router();
+const authMiddleware = require('../middlewares/basicAuthMiddleware');
 
 const listarUsuarios = async (req, res) => {
   try {
@@ -101,10 +104,10 @@ const deletarUsuario = async (req, res) => {
   }
 };
 
-module.exports = {
-  listarUsuarios,
-  obterUsuario,
-  criarUsuario,
-  atualizarUsuario,
-  deletarUsuario,
-};
+usuariosRouter.get('/', authMiddleware, listarUsuarios);
+usuariosRouter.get('/:id', authMiddleware, obterUsuario);
+usuariosRouter.post('/', authMiddleware, criarUsuario);
+usuariosRouter.put('/:id', authMiddleware, atualizarUsuario);
+usuariosRouter.delete('/:id', authMiddleware, deletarUsuario);
+
+module.exports = usuariosRouter;

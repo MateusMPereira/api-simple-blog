@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 const CategoriaArtigo = require('../models/categoriasArtigosModel');
+const express = require('express');
+const categoriasArtigosRouter = express.Router();
+const authMiddleware = require('../middlewares/basicAuthMiddleware');
 
 const listarCategoriasArtigos = async (req, res) => {
   try {
@@ -101,10 +104,10 @@ const deletarCategoriaArtigo = async (req, res) => {
   }
 };
 
-module.exports = {
-  listarCategoriasArtigos,
-  obterCategoriaArtigo,
-  criarCategoriaArtigo,
-  atualizarCategoriaArtigo,
-  deletarCategoriaArtigo,
-};
+categoriasArtigosRouter.get('/', authMiddleware, listarCategoriasArtigos);
+categoriasArtigosRouter.get('/:id', authMiddleware, obterCategoriaArtigo);
+categoriasArtigosRouter.post('/', authMiddleware, criarCategoriaArtigo);
+categoriasArtigosRouter.put('/:id', authMiddleware, atualizarCategoriaArtigo);
+categoriasArtigosRouter.delete('/:id', authMiddleware, deletarCategoriaArtigo);
+
+module.exports = categoriasArtigosRouter;

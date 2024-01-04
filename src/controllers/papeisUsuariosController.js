@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 const PapeisUsuariosModel = require('../models/papeisUsuariosModel');
+const express = require('express');
+const papeisUsuariosRouter = express.Router();
+const authMiddleware = require('../middlewares/basicAuthMiddleware');
 
 const listarPapeisUsuarios = async (req, res) => {
   try {
@@ -101,10 +104,10 @@ const deletarPapelUsuario = async (req, res) => {
   }
 };
 
-module.exports = {
-  listarPapeisUsuarios,
-  obterPapelUsuario,
-  criarPapelUsuario,
-  atualizarPapelUsuario,
-  deletarPapelUsuario,
-};
+papeisUsuariosRouter.get('/', authMiddleware, listarPapeisUsuarios);
+papeisUsuariosRouter.get('/:id', authMiddleware, obterPapelUsuario);
+papeisUsuariosRouter.post('/', authMiddleware, criarPapelUsuario);
+papeisUsuariosRouter.put('/:id', authMiddleware, atualizarPapelUsuario);
+papeisUsuariosRouter.delete('/:id', authMiddleware, deletarPapelUsuario);
+
+module.exports = papeisUsuariosRouter;
