@@ -1,8 +1,0 @@
-{
-    "functions": {
-        "api/index.js": {
-            "memory": 1024
-        }
-    },
-    "rewrites": [{ "source": "/api/index.js", "destination": "/api" }]
-}
