@@ -1,8 +1,5 @@
 const mongoose = require('mongoose');
 const ComentarioArtigo = require('../models/comentariosArtigosModel');
-const express = require('express');
-const authMiddleware = require('../middlewares/basicAuthMiddleware');
-const comentariosArtigosRouter = express.Router();
 
 const listarComentariosArtigos = async (req, res) => {
   try {
@@ -104,10 +101,12 @@ const deletarComentarioArtigo = async (req, res) => {
   }
 };
 
-comentariosArtigosRouter.get('/', authMiddleware, listarComentariosArtigos);
-comentariosArtigosRouter.get('/:id', authMiddleware, obterComentarioArtigo);
-comentariosArtigosRouter.post('/', authMiddleware, criarComentarioArtigo);
-comentariosArtigosRouter.put('/:id', authMiddleware, atualizarComentarioArtigo);
-comentariosArtigosRouter.delete('/:id', authMiddleware, deletarComentarioArtigo);
+const comentariosArtigosController = {
+  listarComentariosArtigos,
+  obterComentarioArtigo, 
+  criarComentarioArtigo,
+  atualizarComentarioArtigo,
+  deletarComentarioArtigo
+};
 
-module.exports = comentariosArtigosRouter;
+module.exports = comentariosArtigosController;

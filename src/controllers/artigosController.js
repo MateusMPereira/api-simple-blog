@@ -1,6 +1,5 @@
-const ArtigosModel = require('../models/artigosModel');const express = require('express');
-const artigosRouter = express.Router();
-const authMiddleware = require('../middlewares/basicAuthMiddleware');
+const mongoose = require('mongoose');
+const ArtigosModel = require('../models/artigosModel');
 
 const listarArtigos = async (req, res) => {
   try {
@@ -125,10 +124,12 @@ const deletarArtigo = async (req, res) => {
   }
 };
 
-artigosRouter.get('/', authMiddleware, listarArtigos);
-artigosRouter.get('/:id', authMiddleware, obterArtigo);
-artigosRouter.post('/', authMiddleware, criarArtigo);
-artigosRouter.put('/:id', authMiddleware, atualizarArtigo);
-artigosRouter.delete('/:id', authMiddleware, deletarArtigo);
+const artigosController = {
+  listarArtigos,
+  obterArtigo,
+  criarArtigo,
+  atualizarArtigo,
+  deletarArtigo
+};
 
-module.exports = artigosRouter;
+module.exports = artigosController;
