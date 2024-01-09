@@ -55,6 +55,8 @@ router.post('/api/papeis-usuarios/', authMiddleware, papeisUsuariosController.cr
 router.put('/api/papeis-usuarios/:id', authMiddleware, papeisUsuariosController.atualizarPapelUsuario);
 router.delete('/api/papeis-usuarios/:id', authMiddleware, papeisUsuariosController.deletarPapelUsuario);
 
+app.use(router);
+
 if (app.get('env') === 'development') {
   app.use(errorHandler());
 }
